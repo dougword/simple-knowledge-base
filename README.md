@@ -9,8 +9,11 @@ Funcionalidades da Aplicação:
 # Endereço de Deploy - GitHub Pages
 https://dougword.github.io/simple-knowledge-base/
 
+# Protótipo no Figma
+https://www.figma.com/proto/5lKdAXda0jRd339NE6NRvn/Simple-Knowledge-Base-(Using-Materialize)?type=design&node-id=3200-71&scaling=scale-down&page-id=3200%3A70&starting-point-node-id=3200%3A71
+
 # Checklist
-- [ ] Criar o repositório no GitHub com a estrutura do Gitflow, ou seja, branches main e develop.
+- [x] Criar o repositório no GitHub com a estrutura do Gitflow, ou seja, branches main e develop.
 - [ ] Usar componentes de algum framework CSS (Bootstrap, Materialize ou outro)
 - [ ] Apresentar as telas com layout responsivo usando ou não algum framework CSS.
 - [ ] Construir páginas web com o conceito de componentes.
