@@ -7,6 +7,12 @@ import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { CategoryFormComponent } from './category-form/category-form.component';
 import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { MainComponent } from './main/main.component';
+import { KnowledgeListComponent } from './knowledge-list/knowledge-list.component';
+import { CategoryListComponent } from './category-list/category-list.component';
+import { KnowledgeItemComponent } from './knowledge-item/knowledge-item.component';
+import { CategoryItemComponent } from './category-item/category-item.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +20,17 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     MenuComponent,
     FooterComponent,
-    CategoryFormComponent
+    CategoryFormComponent,
+    MainComponent,
+    KnowledgeListComponent,
+    CategoryListComponent,
+    KnowledgeItemComponent,
+    CategoryItemComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

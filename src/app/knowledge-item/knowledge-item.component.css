@@ -1,0 +1,12 @@
+.card-category {
+    font-weight: bold;
+}
+
+.card-date {
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.btn {
+    margin-left: 10px;
+}
