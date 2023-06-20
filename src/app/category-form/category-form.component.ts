@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../model/category';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CategoryFake } from '../fake/category-fake';
+import { CategoryHandler } from '../handler/category-handler';
 
 @Component({
   selector: 'app-category-form',
@@ -10,17 +10,14 @@ import { CategoryFake } from '../fake/category-fake';
 })
 export class CategoryFormComponent implements OnInit {
   category!: Category;
-  title: string = 'Inlcuir Categoria';
+  title: string = 'Incluir Categoria';
 
   ngOnInit(): void {
     let id = this.route.snapshot.params['id'];
     if (id) {
-      let foundCategory = CategoryFake.list.find((c) => c.id == id);
+      let foundCategory = CategoryHandler.getById(+id);
       if (foundCategory) {
-        this.category = new Category(
-          foundCategory.id,
-          foundCategory.description
-        );
+        this.category = foundCategory;
         this.title = 'Editar Categoria';
       } else {
         this.category = new Category(0, '');
@@ -35,12 +32,11 @@ export class CategoryFormComponent implements OnInit {
       alert('A categoria precisa ter pelo menos 3 caracteres');
       return;
     }
-    let foundCategory = CategoryFake.list.find((c) => c.id == this.category.id);
-    if (foundCategory) {
-      foundCategory.description = this.category.description;
-      this.router.navigate(['/category']);
+    if (this.category.id == 0) {
+      CategoryHandler.insert(this.category);
     } else {
-      alert('Falha ao editar');
+      CategoryHandler.update(this.category);
     }
+    this.router.navigate(['/category']);
   }
 }

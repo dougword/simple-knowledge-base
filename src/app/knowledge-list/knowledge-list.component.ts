@@ -2,9 +2,9 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 
 import * as M from 'materialize-css';
 import { Category } from '../model/category';
-import { CategoryFake } from '../fake/category-fake';
-import { KnowledgeFake } from '../fake/knowledge-fake';
+import { CategoryHandler } from '../handler/category-handler';
 import { Knowledge } from '../model/knowledge';
+import { KnowledgeHandler } from '../handler/knowledge-handler';
 
 @Component({
   selector: 'app-knowledge-list',
@@ -16,8 +16,8 @@ export class KnowledgeListComponent implements OnInit, AfterViewInit {
   knowledges!: Knowledge[];
 
   ngOnInit(): void {
-    this.categories = CategoryFake.list;
-    this.knowledges = KnowledgeFake.list;
+    this.categories = CategoryHandler.getAll();
+    this.knowledges = KnowledgeHandler.getAll();
   }
   
   ngAfterViewInit(): void {
@@ -27,9 +27,9 @@ export class KnowledgeListComponent implements OnInit, AfterViewInit {
   onCategorySelect(event: Event) {
     let categoryId = +(event.target as HTMLInputElement).value;
     if (categoryId) {
-      this.knowledges = KnowledgeFake.list.filter(k => k.category.id == categoryId);
+      this.knowledges = KnowledgeHandler.getAll().filter(k => k.category.id == categoryId);
     } else {
-      this.knowledges = KnowledgeFake.list;
+      this.knowledges = KnowledgeHandler.getAll();
     }
   }
 }

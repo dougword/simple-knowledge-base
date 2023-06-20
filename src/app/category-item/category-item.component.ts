@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Category } from '../model/category';
 import { ActivatedRoute } from '@angular/router';
-import { CategoryFake } from '../fake/category-fake';
+import { CategoryHandler } from '../handler/category-handler';
 
 @Component({
   selector: 'app-category-item',
@@ -16,7 +16,7 @@ export class CategoryItemComponent implements OnInit {
   ngOnInit(): void {
     let id = this.route.snapshot.params['id'];
     if (id) {
-      let foundCategory = CategoryFake.list.find((c) => c.id == id);
+      let foundCategory = CategoryHandler.getById(+id);
       if (foundCategory) {
         this.category = new Category(
           foundCategory.id,
