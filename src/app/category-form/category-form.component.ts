@@ -9,7 +9,7 @@ import { CategoryHandler } from '../handler/category-handler';
   styleUrls: ['./category-form.component.css'],
 })
 export class CategoryFormComponent implements OnInit {
-  category!: Category;
+  category: Category = new Category(0, '', '');
   title: string = 'Incluir Categoria';
 
   ngOnInit(): void {
@@ -19,15 +19,13 @@ export class CategoryFormComponent implements OnInit {
       if (foundCategory) {
         this.category = foundCategory;
         this.title = 'Editar Categoria';
-      } else {
-        this.category = new Category(0, '');
       }
     }
   }
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
-  save() {
+  onSubmit() {
     if (this.category.description.trim().length < 3) {
       alert('A categoria precisa ter pelo menos 3 caracteres');
       return;

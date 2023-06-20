@@ -7,7 +7,7 @@ export class KnowledgeHandler {
 
   static init() {
     if (KnowledgeHandler.getAll().length == 0) {
-      let category = CategoryHandler.getById(1) || new Category(0, '');
+      let category = CategoryHandler.getById(1) || new Category(0, 'Nenhuma', 'NONE');
       let fakeData = [
         new Knowledge(1, 'Utilizar várias versões NodeJS', category, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis non recusandae hic sunt illo sequi et quibusdam ipsa, facere labore quis autem quaerat, ab earum libero', new Date()),
         new Knowledge(2, 'Geração de imagens com IA', category, 'Amet consectetur adipisicing elit. Perspiciatis non recusandae hic sunt illo sequi et quibusdam ipsa, facere labore quis autem quaerat, ab earum libero', new Date()),

@@ -3,7 +3,7 @@ import { Category } from './category';
 export class Knowledge {
   id: number = 0;
   title: string = '';
-  category: Category = new Category(0, '');
+  category: Category = new Category(0, '', '');
   text: string = '';
   createdAt: Date = new Date();
 

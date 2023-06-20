@@ -8,3 +8,7 @@ hr {
     margin-right: 50px;
     border: 0.1px solid white;  
 }
+
+li > a {
+    color: white !important;
+}

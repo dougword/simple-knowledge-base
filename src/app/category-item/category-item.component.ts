@@ -18,12 +18,9 @@ export class CategoryItemComponent implements OnInit {
     if (id) {
       let foundCategory = CategoryHandler.getById(+id);
       if (foundCategory) {
-        this.category = new Category(
-          foundCategory.id,
-          foundCategory.description
-        );
+        this.category = foundCategory;
       } else {
-        this.category = new Category(0, '');
+        this.category = new Category(0, '', '');
       }
     }
   }

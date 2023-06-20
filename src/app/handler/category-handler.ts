@@ -6,10 +6,11 @@ export class CategoryHandler {
   static init() {
     if (CategoryHandler.getAll().length == 0) {
       let fakeData = [
-        new Category(0, 'Configurações'),
-        new Category(0, 'Edição de imagem'),
-        new Category(0, 'Ferramentas SGBD'),
-        new Category(0, 'Containers'),
+        new Category(0, 'Nenhuma', 'NONE'),
+        new Category(0, 'Configurações', 'CFG'),
+        new Category(0, 'Edição de imagem', 'IMG'),
+        new Category(0, 'Ferramentas SGBD', 'SQL'),
+        new Category(0, 'Containers', 'DCK'),
       ];
       for (let category of fakeData) {
         CategoryHandler.insert(category);

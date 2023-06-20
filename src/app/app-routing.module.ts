@@ -8,6 +8,7 @@ import { CategoryItemComponent } from './category-item/category-item.component';
 
 const routes: Routes = [
   { path: 'category', component: CategoryListComponent },
+  { path: 'category/form', component: CategoryFormComponent },
   { path: 'category/form/:id', component: CategoryFormComponent },
   { path: 'category/view/:id', component: CategoryItemComponent },
   { path: 'knowledge', component: KnowledgeListComponent },

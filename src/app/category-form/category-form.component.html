@@ -1,17 +1,51 @@
 <div class="container">
   <h1 class="red-text text-lighten-2">{{ title }}</h1>
   <div class="row">
-    <form class="col s12">
+    <form class="col s12" #form="ngForm" (submit)="onSubmit()">
       <div class="row">
         <div class="input-field col s12">
-          <input id="description" name="description" type="text" class="validate" [(ngModel)]="this.category.description" />
-          <label for="description" class="active">Descrição</label>
+          <input
+            id="abbreviation"
+            name="abbreviation"
+            #abbreviation="ngModel"
+            type="text"
+            class="validate"
+            pattern="^[A-Z\-0-9]{2,5}$"
+            [(ngModel)]="this.category.abbreviation"
+            required
+          />
+          <label for="abbreviation" class="active">Abreviação</label>
+          <div class="red-text" [hidden]="abbreviation.valid || abbreviation.untouched">
+            A <b>abreviação</b> deve ser informada e ter entre 2 e 5 caracteres.
+          </div>
         </div>
       </div>
       <div class="row">
-        <a class="waves-effect waves-light btn" (click)="this.save()"
-          ><i class="material-icons left">save</i>Salvar</a
+        <div class="input-field col s12">
+          <input
+            id="description"
+            name="description"
+            #description="ngModel"
+            type="text"
+            class="validate"
+            pattern="\w{3,100}"
+            [(ngModel)]="this.category.description"
+            required
+          />
+          <label for="description" class="active">Descrição</label>
+          <div class="red-text" [hidden]="description.valid || description.untouched">
+            A <b>descrição</b> deve ser informada e ter entre 3 e 100 caracteres.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <button
+          class="waves-effect waves-light btn"
+          type="submit"
+          [disabled]="!form.valid"
         >
+          <i class="material-icons left">save</i>Salvar
+        </button>
       </div>
     </form>
   </div>
