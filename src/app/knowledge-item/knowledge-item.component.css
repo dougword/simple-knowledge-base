@@ -5,8 +5,13 @@
 .card-date {
     font-style: italic;
     font-size: 0.9em;
+    float: right;
 }
 
 .btn {
     margin-left: 10px;
+}
+
+.card .card-content {
+    height: 170px;
 }

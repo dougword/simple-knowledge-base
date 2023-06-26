@@ -1,24 +1,39 @@
+import { CategoryService } from './../service/category.service';
 import { Component, OnInit } from '@angular/core';
-import { CategoryHandler } from '../handler/category-handler';
 import { Category } from '../model/category';
 
 @Component({
   selector: 'app-category-list',
   templateUrl: './category-list.component.html',
-  styleUrls: ['./category-list.component.css']
+  styleUrls: ['./category-list.component.css'],
 })
 export class CategoryListComponent implements OnInit {
-
   categories!: Category[];
 
+  constructor(private categoryService: CategoryService) {}
+
+  loadList() {
+    this.categoryService
+      .getAll()
+      .then((items: Category[]) => (this.categories = items))
+      .catch((error) => console.log(error));
+  }
+
   ngOnInit(): void {
-    this.categories = CategoryHandler.getAll(true);
+    this.loadList();
   }
 
   onDeleteClick(category: Category) {
-    if (confirm(`Deseja realmente excluir a categoria ${category.description}?`)) {
-      CategoryHandler.delete(category.id);
-      this.categories = CategoryHandler.getAll(true);
+    if (
+      confirm(`Deseja realmente excluir a categoria ${category.description}?`)
+    ) {
+      this.categoryService
+        .delete(category.id)
+        .then((_) => this.loadList())
+        .catch((error) => {
+          alert('Não foi possível excluir a categoria');
+          console.log(error);
+        });
     }
   }
 }

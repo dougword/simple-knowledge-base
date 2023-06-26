@@ -1,0 +1,19 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "abbreviation": "NONE",
+      "description": "Nenhuma"
+    },
+    {
+      "id": 2,
+      "description": "Teste",
+      "abbreviation": "CFG"
+    },
+    {
+      "id": 3,
+      "description": "Edição de Imagens",
+      "abbreviation": "IMG"
+    }
+  ]
+}

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryHandler } from './handler/category-handler';
 import { KnowledgeHandler } from './handler/knowledge-handler';
 
 @Component({
@@ -11,7 +10,6 @@ export class AppComponent implements OnInit {
   title = 'simple-knowledge-base';
 
   ngOnInit(): void {
-    CategoryHandler.init();
     KnowledgeHandler.init();
   }
 }

@@ -13,6 +13,7 @@ import { KnowledgeListComponent } from './knowledge-list/knowledge-list.componen
 import { CategoryListComponent } from './category-list/category-list.component';
 import { KnowledgeItemComponent } from './knowledge-item/knowledge-item.component';
 import { CategoryItemComponent } from './category-item/category-item.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CategoryItemComponent } from './category-item/category-item.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
