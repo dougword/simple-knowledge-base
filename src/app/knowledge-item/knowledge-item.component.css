@@ -8,6 +8,10 @@
     float: right;
 }
 
+.card-content > a {
+    text-decoration: underline;
+}
+
 .card-action > a {
     margin-bottom: 1px;
 }

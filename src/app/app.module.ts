@@ -15,6 +15,7 @@ import { KnowledgeItemComponent } from './knowledge-item/knowledge-item.componen
 import { CategoryItemComponent } from './category-item/category-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { KnowledgeFormComponent } from './knowledge-form/knowledge-form.component';
+import { KnowledgeItemDetailComponent } from './knowledge-item-detail/knowledge-item-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { KnowledgeFormComponent } from './knowledge-form/knowledge-form.componen
     CategoryListComponent,
     KnowledgeItemComponent,
     CategoryItemComponent,
-    KnowledgeFormComponent
+    KnowledgeFormComponent,
+    KnowledgeItemDetailComponent
   ],
   imports: [
     BrowserModule,

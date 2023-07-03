@@ -7,6 +7,7 @@ import { CategoryFormComponent } from './category-form/category-form.component';
 import { CategoryItemComponent } from './category-item/category-item.component';
 import { KnowledgeFormComponent } from './knowledge-form/knowledge-form.component';
 import { KnowledgeItemComponent } from './knowledge-item/knowledge-item.component';
+import { KnowledgeItemDetailComponent } from './knowledge-item-detail/knowledge-item-detail.component';
 
 const routes: Routes = [
   { path: 'category', component: CategoryListComponent },
@@ -16,7 +17,7 @@ const routes: Routes = [
   { path: 'knowledge', component: KnowledgeListComponent },
   { path: 'knowledge/form', component: KnowledgeFormComponent },
   { path: 'knowledge/form/:id', component: KnowledgeFormComponent },
-  { path: 'knowledge/view/:id', component: KnowledgeItemComponent },
+  { path: 'knowledge/view/:id', component: KnowledgeItemDetailComponent },
   { path: '', component: MainComponent, pathMatch: 'full' }
 ];
 

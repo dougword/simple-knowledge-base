@@ -1,0 +1,11 @@
+<div class="container">
+    <h1 class="red-text text-lighten-2">Conhecimento</h1>
+    <ul>
+        <li><strong>Id:</strong> {{ knowledge.id }}</li>
+        <li><strong>Título:</strong> {{ knowledge.title }}</li>
+        <li><strong>Categoria:</strong> {{ knowledge.category.description }}</li>
+        <li><strong>Criado em:</strong> {{ knowledge.createdAt | date: 'dd/MM/yyy HH:mm' }}</li>
+        <li><strong>Conteúdo:</strong> {{ knowledge.text }}</li>
+    </ul>
+  </div>
+  
