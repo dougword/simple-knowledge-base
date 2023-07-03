@@ -4,7 +4,8 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import * as M from 'materialize-css';
 import { Category } from '../model/category';
 import { Knowledge } from '../model/knowledge';
-import { KnowledgeHandler } from '../handler/knowledge-handler';
+import { KnowledgeService } from '../service/knowledge.service';
+import { MessageUtil } from '../util/message-util';
 
 @Component({
   selector: 'app-knowledge-list',
@@ -15,19 +16,37 @@ export class KnowledgeListComponent implements OnInit, AfterViewInit {
   categories!: Category[];
   knowledges!: Knowledge[];
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(
+    private categoryService: CategoryService,
+    private knowledgeService: KnowledgeService
+  ) {}
+
+  loadList() {
+    this.knowledgeService.getAll().subscribe(
+      (items: Knowledge[]) => {
+        this.knowledges = items;
+      },
+      (error: Error) => {
+        MessageUtil.showToastError(error.message);
+      }
+    );
+  }
 
   ngOnInit(): void {
-    this.knowledges = KnowledgeHandler.getAll();
+    this.loadList();
   }
 
   ngAfterViewInit(): void {
-    this.categoryService.getAll().then((items: Category[]) => {
-      this.categories = items;
-      setTimeout(() => {
-        this.initializeFormSelect();
-      }, 50);
-    });
+    this.categoryService.getAll().then(
+      (items: Category[]) => {
+        this.categories = items;
+        setTimeout(() => {
+          this.initializeFormSelect();
+        }, 50);
+      },
+      (error) =>
+        MessageUtil.showErrorMessage('Falha ao carregar categorias', error)
+    );
   }
 
   initializeFormSelect() {
@@ -37,12 +56,24 @@ export class KnowledgeListComponent implements OnInit, AfterViewInit {
   onCategorySelect(event: Event) {
     let categoryId = +(event.target as HTMLInputElement).value;
     if (categoryId) {
-      console.log(categoryId)
-      this.knowledges = KnowledgeHandler.getAll().filter(
-        (k) => k.category.id == categoryId
+      this.knowledgeService.getByCategoryId(categoryId).subscribe(
+        (items: Knowledge[]) => {
+          this.knowledges = items;
+        },
+        (error) => MessageUtil.showToastError(error.message)
       );
     } else {
-      this.knowledges = KnowledgeHandler.getAll();
+      this.loadList();
+    }
+  }
+
+  onDeleteClick(knowledge: Knowledge) {
+    if (
+      confirm(`Deseja realmente excluir o conhecimento ${knowledge.title}?`)
+    ) {
+      this.knowledgeService
+        .delete(knowledge.id)
+        .subscribe((_) => this.loadList());
     }
   }
 }

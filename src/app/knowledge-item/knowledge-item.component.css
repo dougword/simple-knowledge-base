@@ -8,10 +8,15 @@
     float: right;
 }
 
+.card-action > a {
+    margin-bottom: 1px;
+}
+
 .btn {
     margin-left: 10px;
 }
 
 .card .card-content {
     height: 170px;
+    overflow: hidden;
 }

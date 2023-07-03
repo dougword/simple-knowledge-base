@@ -25,6 +25,7 @@ export class CategoryService {
   update(category: Category) {
     return lastValueFrom(this.httpClient.put<Category>(`http://localhost:3000/categories/${category.id}`, category));
   }
+
   insert(category: Category) {
     return lastValueFrom(this.httpClient.post<Category>('http://localhost:3000/categories', category));
   }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Knowledge } from '../model/knowledge';
 
 @Component({
@@ -9,5 +9,10 @@ import { Knowledge } from '../model/knowledge';
 export class KnowledgeItemComponent {
 
   @Input() knowledge!: Knowledge;
+  @Output() deleteClick = new EventEmitter<Knowledge>();
+
+  onDeleteClick() {
+    this.deleteClick.emit(this.knowledge);
+  }
 
 }
