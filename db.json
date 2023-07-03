@@ -1,0 +1,66 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "abbreviation": "CFG",
+      "description": "Configurações"
+    },
+    {
+      "id": 2,
+      "abbreviation": "IMG",
+      "description": "Edição de Imagens"
+    },
+    {
+      "id": 3,
+      "abbreviation": "SGBD",
+      "description": "Ferramentas SGDB"
+    },
+    {
+      "id": 4,
+      "abbreviation": "DCKR",
+      "description": "Containers"
+    },
+    {
+      "id": 5,
+      "abbreviation": "ANGLR",
+      "description": "Angular"
+    }
+  ],
+  "knowledges": [
+    {
+      "id": 1,
+      "title": "Utilizar várias versões node.js",
+      "categoryId": 1,
+      "text": "É recomendado desinstalar qualquer versão do Node.js presente em sua máquina antes de instalar o NVM para evitar colisões.\n\nPara instalar o NVM basta usar o curl ou Wget. Execute no terminal:\n\n$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash\n\nou\n\n$ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash\n\nIsso vai executar um script que vai clonar o repositório do NVM e jogar em um diretório chamado ~/.nvm/, que é onde serão instaladas as várias versões do Node.js que quisermos.\n\nListar versões instaladas\nPara ver as versões que estão instaladas em sua máquina:\n\nCopiar\n$ nvm ls\nListar versões disponíveis para instalação\nEste comando lista todas as versões disponíveis para baixar e instalar na sua máquina. Esse número de versão será usado no comando para realizar a instalação.\n\nCopiar\n$ nvm ls-remote\nInstalar uma versão\nPara instalar usamos o comando install seguido pelo número da versão que queremos (mostrada no comando anterior, ls-remote).\n\nCopiar\n$ nvm install vX.X.X\nBasta mudar os X pelos números da versão que quer baixar como v.0.11.5 ou v.12.4.0.\n\nPara instalar a versão mais recente, utilize node no lugar do número da versão:\n\nCopiar\n$ nvm install node\nA primeira versão que você instalar será usada por padrão sempre que você abrir o terminal. A versão padrão pode ser alterada depois.\n\nFonte: https://www.treinaweb.com.br/blog/instalando-e-gerenciando-varias-versoes-do-node-js-com-nvm",
+      "createdAt": "2023-07-03T01:22:42.544Z"
+    },
+    {
+      "id": 2,
+      "title": "Geração de imagens com IA",
+      "categoryId": "2",
+      "text": "Dall-E\nO primeiro é provavelmente o principal site para gerar imagem com inteligência artificial.\n\nO DALL-E é uma plataforma da OpenAI, mesma empresa por trás do ChatGPT (e cujo modelo de IA também alimenta o Bing AI Search).\n\nEle pode criar imagem com inteligência artificial de maneira única a partir de descrições simples, como essa abaixo:\nO mais legal é que ele cria de tudo, pois é baseado na poderosa arquitetura GPT-4.\n\nQuer uma girafa de duas cabeças andando de skate? O DALL-E consegue.\n\nPara acessá-lo, você precisa apenas criar uma conta. Todo mês, a OpenAI libera 15 créditos para os usuários (ou seja, 15 gerações de imagens).\n\nPara obter mais, é possível comprá-los diretamente no site.\n\n\nFonte: https://neilpatel.com/br/blog/gerar-imagem-com-inteligencia-artificial/",
+      "createdAt": "2023-07-03T01:29:46.554Z"
+    },
+    {
+      "id": 3,
+      "title": "Acessar senhas salvas DBeaver",
+      "categoryId": "3",
+      "text": "Acessar dados das conexões, incluindo senha:\n\n~/.local/share/DBeaverData/workspace6/Local/.dbeaver/credentials-config.json\nopenssl aes-128-cbc -d -K babb4a9f774ab853c96c2d653dfe544a -iv 00000000000000000000000000000000 -in credentials-config.json\n# Para obter as configurações (url, etc): data-sources.json",
+      "createdAt": "2023-07-03T01:30:58.286Z"
+    },
+    {
+      "id": 4,
+      "title": "Configurar inicialização Docker",
+      "categoryId": "4",
+      "text": "Atualizar auto início (https://docs.docker.com/config/containers/start-containers-automatically/)\n\ndocker update --restart unless-stopped $(docker ps -q)",
+      "createdAt": "2023-07-03T01:31:45.605Z"
+    },
+    {
+      "id": 5,
+      "title": "Utilizar máscaras no Angular",
+      "categoryId": "5",
+      "text": "Existe um pacote npm que nos permite adicionar máscaras no input facilmente.\n\nhttps://www.npmjs.com/package/ngx-mask",
+      "createdAt": "2023-07-03T01:32:18.524Z"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-content">
+    <span class="card-title red-text">{{ this.knowledge.title }}</span>
+    <span class="card-date">{{ this.knowledge.createdAt | date: 'dd/MM/yyy HH:mm' }}</span>
+    <span class="card-category">{{ this.knowledge.category.description }}</span>
+    <p>
+      {{ this.knowledge.text }}
+    </p>
+  </div>
+  <div class="card-action right-align">
+    <a [routerLink]="['/knowledge/form', this.knowledge.id]" class="waves-effect waves-light btn"
+      ><i class="material-icons left">edit</i>Editar</a
+    >
+    <button (click)="onDeleteClick()" class="waves-effect waves-light btn"
+      ><i class="material-icons left">delete</i>Excluir</button
+    >
+  </div>
+</div>
