@@ -1,0 +1,71 @@
+<div class="container">
+  <h1 class="red-text text-lighten-2">{{ formTitle }}</h1>
+  <div class="row">
+    <form class="col s12" #form="ngForm" (submit)="onSubmit()">
+      <div class="row">
+        <div class="input-field col s12">
+          <input
+            id="title"
+            name="title"
+            #title="ngModel"
+            type="text"
+            class="validate"
+            pattern="^.{2,100}$"
+            [(ngModel)]="this.knowledge.title"
+            required
+          />
+          <label for="title" class="active">Título</label>
+          <div class="red-text" *ngIf="title.invalid && title.touched">
+            O <b>título</b> deve ser informado e ter entre 2 e 100 caracteres.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <select
+            name="categoria"
+            id="categoria"
+            [(ngModel)]="this.knowledge.category.id"
+            required
+          >
+            <option *ngFor="let c of categories" value="{{ c.id }}">
+              {{ c.description }}
+            </option>
+          </select>
+          <label for="categoria">Categoria</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea
+            id="description"
+            name="description"
+            #description="ngModel"
+            type="text"
+            class="validate materialize-textarea"
+            pattern="[\s\S]{3,100000}"
+            [(ngModel)]="this.knowledge.text"
+            required
+          ></textarea>
+          <label for="description" class="active">Descrição</label>
+          <div
+            class="red-text"
+            *ngIf="description.invalid && description.touched"
+          >
+            A <b>descrição</b> deve ser informada e ter entre 3 e 100000
+            caracteres.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <button
+          class="waves-effect waves-light btn"
+          type="submit"
+          [disabled]="!form.valid"
+        >
+          <i class="material-icons left">save</i>Salvar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

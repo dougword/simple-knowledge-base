@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 class="red-text text-lighten-2">Conhecimento</h1>
+
+  <div class="row">
+    <div class="input-field col s12 m4 l3">
+      <a class="waves-effect waves-light btn" [routerLink]="['/knowledge/form']"
+        ><i class="material-icons left">add</i>Inserir</a
+      >
+    </div>
+    <div class="input-field col s12 m8 l9">
+      <select (change)="onCategorySelect($event)">
+        <option value="" selected>- Filtre por categoria -</option>
+        <option *ngFor="let c of categories" value="{{ c.id }}">
+          {{ c.description }}
+        </option>
+      </select>
+      <label>Categoria</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m6" *ngFor="let k of knowledges">
+      <app-knowledge-item
+        [knowledge]="k"
+        (deleteClick)="onDeleteClick($event)"
+      ></app-knowledge-item>
+    </div>
+  </div>
+</div>

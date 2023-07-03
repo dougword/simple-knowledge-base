@@ -1,0 +1,26 @@
+.card-category {
+    font-weight: bold;
+}
+
+.card-date {
+    font-style: italic;
+    font-size: 0.9em;
+    float: right;
+}
+
+.card-content > a {
+    text-decoration: underline;
+}
+
+.card-action > a {
+    margin-bottom: 1px;
+}
+
+.btn {
+    margin-left: 10px;
+}
+
+.card .card-content {
+    height: 170px;
+    overflow: hidden;
+}
